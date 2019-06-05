@@ -20,7 +20,7 @@ few simple Google searches should provide easy instructions! :)
 
 Run ElasticSearch, Logstash and Kibana with the default configurations in localhost.
 For Logstash, you need to provide a conf file describing where to listen for log entries
-and how to parse and filter them. There's a `logstach.conf` expecting entries from
+and how to parse and filter them. There's a `logstash.conf` expecting entries from
 `application.log` file, all in this same dir to keep things simple.
 
 ```
