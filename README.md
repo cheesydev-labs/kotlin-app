@@ -1,4 +1,23 @@
 # Spring Boot ELK
+
+## Run with Docker
+
+```
+docker build -t kotlin-app:1.0.0 .
+docker run --rm --name=kotlin -p 8080:8080 kotlin-app:1.0.0
+```
+
+## Run the old (classic) way
+
+Without container support, things should be installed on the local machine first. Usually, installation instructions
+is provided on the website of the product, where popular options include download a binary or zip/tar file with
+everything ready to run.
+
+Alternatively, you can use the package manager for your OS system to install things for you,
+like Homebrew (Mac and Linux) or APT (Ubuntu/Debian Linux). Package managers may install other dependencies, create
+specific system users to run and Systemd (Linux) or Launchd (Mac) scripts to run the package as a local service. A
+few simple Google searches should provide easy instructions! :)
+
 Run ElasticSearch, Logstash and Kibana with the default configurations in localhost.
 For Logstash, you need to provide a conf file describing where to listen for log entries
 and how to parse and filter them. There's a `logstach.conf` expecting entries from
