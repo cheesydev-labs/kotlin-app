@@ -5,7 +5,7 @@ class Article() {
     lateinit var title: String
     var likes: Int? = null
 
-    constructor(id: String, title: String): this() {
+    constructor(id: String, title: String) : this() {
         this.id = id
         this.title = title
     }
