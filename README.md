@@ -14,6 +14,8 @@ kubectl apply -f manifests/fluentd-demo-namespace.yaml
 kubectl apply -f manifests/elasticsearch-singlenode.yaml
 kubectl apply -f manifests/kibana.yaml
 
+kubectl apply -f manifests/fluentd-rbac.yaml
+kubectl apply -f manifests/fluentd-daemonset.yaml
 ```
 
 ## Run the old (classic) way
