@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlin
+  namespace: fluentd-demo
+  labels:
+    app: kotlin
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kotlin
+  template:
+    metadata:
+      labels:
+        app: kotlin
+    spec:
+      containers:
+        - name: kotlin
+          image: kotlin-app:1.0.0
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kotlin
+  namespace: fluentd-demo
+  labels:
+    app: kotlin
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    app: kotlin

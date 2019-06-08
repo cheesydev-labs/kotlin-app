@@ -18,6 +18,17 @@ kubectl apply -f manifests/fluentd-rbac.yaml
 kubectl apply -f manifests/fluentd-daemonset.yaml
 ```
 
+In Kibana, connect to the Elastic Search index `logstash*` created by Fluentd.
+
+```
+eval $(minikube docker-env)
+docker build -t kotlin-app:1.0.0 .
+kubectl apply -f manifests/kotlin-app-deployment.yaml
+```
+
+Make sure you hit the app service at `/article` once or more.
+Then, in Kibana, you can browser the recent log entries or filter by `kubernetes.container_name : "kotlin"`.
+
 ## Run the old (classic) way
 
 Without container support, things should be installed on the local machine first. Usually, installation instructions
