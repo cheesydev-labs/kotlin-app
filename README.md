@@ -1,10 +1,19 @@
 # Spring Boot ELK
 
-## Run with Docker
+## Run the app with Docker
 
 ```
 docker build -t kotlin-app:1.0.0 .
 docker run --rm --name=kotlin -p 8080:8080 kotlin-app:1.0.0
+```
+
+## Run Elastic Search, Kibana and Fluentd
+
+```bash
+kubectl apply -f manifests/fluentd-demo-namespace.yaml
+kubectl apply -f manifests/elasticsearch-singlenode.yaml
+kubectl apply -f manifests/kibana.yaml
+
 ```
 
 ## Run the old (classic) way
