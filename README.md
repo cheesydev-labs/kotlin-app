@@ -7,7 +7,12 @@ docker build -t kotlin-app:1.0.0 .
 docker run --rm --name=kotlin -p 8080:8080 kotlin-app:1.0.0
 ```
 
-## Run Elastic Search, Kibana and Fluentd
+## Run the app, ElasticSearch, Kibana and Fluentd with Minikube
+
+```bash
+minikube start --cpus 4 --memory 8192
+eval $(minikube docker-env)             # use docker daemon from minikube VM
+```
 
 ```bash
 kubectl apply -f manifests/fluentd-demo-namespace.yaml
@@ -23,7 +28,15 @@ In Kibana, connect to the Elastic Search index `logstash*` created by Fluentd.
 ```
 eval $(minikube docker-env)
 docker build -t kotlin-app:1.0.0 .
-kubectl apply -f manifests/kotlin-app-deployment.yaml
+
+# no image registry is used, pull local image
+kubectl apply -f manifests/kotlin-app-minikube-deployment.yaml
+```
+
+Clean up:
+```
+minikube delete
+eval $(minikube docker-env -u)         # back to docker daemon from localhost
 ```
 
 Make sure you hit the app service at `/article` once or more.
