@@ -13,7 +13,7 @@ class ArticlesController {
         private val logger = getLogger(ArticlesController::class.java)
         private val ALL_ARTICLES: List<Article> = listOf(
                 Article("1", "First Post"),
-                Article("2", "A Second Nice Post"))
+                Article("2", "A Second Nice Post", 3))
     }
 
     @GetMapping

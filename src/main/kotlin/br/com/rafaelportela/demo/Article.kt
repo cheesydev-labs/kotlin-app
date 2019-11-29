@@ -9,4 +9,10 @@ class Article() {
         this.id = id
         this.title = title
     }
+
+    constructor(id: String, title: String, likes: Int) : this() {
+        this.id = id
+        this.title = title
+        this.likes = likes
+    }
 }
